@@ -54,7 +54,7 @@ const federationOptions = Joi.object({
 
 const schema = Joi.object({
   address: Joi.string().ip({ cidr: 'forbidden' }).default('::'),
-  port: Joi.number().default(3000),
+  port: Joi.number().default(process.env.PORT || 3000),
   supportedAudioFiles: Joi.object().pattern(
     Joi.string(), Joi.boolean()
   ).default({

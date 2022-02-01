@@ -83,7 +83,7 @@ function bootServer() {
   fs.writeFileSync(configFile, JSON.stringify(program, null, 2), 'utf8');
 
   // TODO: Select unused port
-  if (!program.port) { program.port = 3000; }
+  if (!program.port) { program.port = process.env.PORT | 3000; }
 
   const protocol = program.ssl && program.ssl.cert && program.ssl.key ? 'https' : 'http';
   trayTemplate = [
